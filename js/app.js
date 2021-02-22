@@ -15,13 +15,13 @@ const pat = {
 
     const h1Element = document.createElement('h1');
     parentElement.appendChild(h1Element);
-    h1Element.textContent =this.name;
+    h1Element.textContent = this.name;
 
     const imgElement = document.createElement('img');
     parentElement.appendChild(imgElement);
     imgElement.setAttribute('src', this.img);
 
-    
+
 
   }
 

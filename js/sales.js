@@ -1,212 +1,79 @@
 'use strict';
-let hour = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
-console.log('hi');
-const Seattle = {
-  name: 'Seattle',
+let hour = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+let SalmonCookies = function (name, Min, Max, Avg) {
+  this.name = name;
+  this.Min = Min;
+  this.Max = Max;
+  this.Avg = Avg;
+  this.avgCookies = [];
+  this.Total = 0;
+};
 
-  Min: 23,
-  Max: 65,
-  Avg: 6.3,
-  arr: [],
-  Total: 0,
-  avgCookies: 0,
-  getAvg: function () {
-    this.avgCookies = this.Avg * Math.floor(getRandom(this.Min, this.Max));
-
-  },
-  render: function () {
-    const parentElement = document.getElementById('sales');
-    const h1Element = document.createElement('h1');
-    parentElement.appendChild(h1Element);
-    h1Element.textContent = this.name;
-    const ulElement = document.createElement('ul');
-    parentElement.appendChild(ulElement);
-    for (let i = 0; i < hour.length; i++) {
-      const liElement = document.createElement('li');
-      ulElement.appendChild(liElement);
-      this.avgCookies = (Math.ceil(getRandom(this.Min, this.Max) * this.Avg));
-      this.arr.push(this.avgCookies);
-      this.Total += this.arr[i];
-
-      liElement.textContent = (`${hour[i]}   : ${this.avgCookies} Cookies`);
-    }
-    console.log(this.arr);
-    const liElement = document.createElement('li');
-    ulElement.appendChild(liElement);
-    liElement.textContent = (`Total  ${this.Total}  Cookies`);
-
-
+SalmonCookies.prototype.getCookies = function () {
+  for (let i = 0; i < hour.length; i++) {
+    let rund = Math.floor(Math.random() * (this.Max - this.Min + 1) + this.Avg);
+    this.avgCookies.push(rund);
+    this.Total += rund;
   }
 };
 
-const Tokyo = {
-  name: 'Tokyo',
-  Min: 3,
-  Max: 24,
-  Avg: 1.2,
-  arr: [],
-  Total: 0,
+let parentElement = document.getElementById('sales');
+let tabelElement = document.createElement('tabel');
+SalmonCookies.prototype.showHeader = function () {
 
-  avgCookies: 0,
-  getAvg: function () {
-    this.avgCookies = this.Avg * Math.floor(getRandom(this.Min, this.Max));
-  },
-  render: function () {
-    const parentElement = document.getElementById('sales');
-    const h1Element = document.createElement('h1');
-    parentElement.appendChild(h1Element);
-    h1Element.textContent = this.name;
-    const ulElement = document.createElement('ul');
-    parentElement.appendChild(ulElement);
-    for (let i = 0; i < hour.length; i++) {
-      const liElement = document.createElement('li');
-      ulElement.appendChild(liElement);
-      this.avgCookies = (Math.ceil(getRandom(this.Min, this.Max) * this.Avg));
-      this.arr.push(this.avgCookies);
-      this.Total += this.arr[i];
-
-      liElement.textContent = (`${hour[i]}   : ${this.avgCookies} Cookies`);
-    }
-    console.log(this.arr);
-    const liElement = document.createElement('li');
-    ulElement.appendChild(liElement);
-    liElement.textContent = (`Total  ${this.Total}  Cookies`);
-
-
+  parentElement.appendChild(tabelElement);
+  const tr1Element = document.createElement('tr');
+  tabelElement.appendChild(tr1Element);
+  const thElement = document.createElement('th');
+  tr1Element.appendChild(thElement);
+  thElement.textContent = 'City/Hours';
+  for (let i = 0; i < hour.length; i++) {
+    const thElement = document.createElement('th');
+    tr1Element.appendChild(thElement);
+    thElement.textContent = hour[i];
   }
+  const th2Element = document.createElement('th');
+  tr1Element.appendChild(th2Element);
+  th2Element.textContent = 'Total';
 };
 
+SalmonCookies.prototype.render = function () {
 
-const Dubai = {
-  name: 'Dubai',
-  Min: 11,
-  Max: 38,
-  Avg: 3.7,
-  arr: [],
-  Total: 0,
+  parentElement.appendChild(tabelElement);
+  const tr2Element = document.createElement('tr');
+  tabelElement.appendChild(tr2Element);
+  const tdElement = document.createElement('td');
+  tr2Element.appendChild(tdElement);
+  tdElement.textContent = this.name;
 
-  avgCookies: 0,
-  getAvg: function () {
-    this.avgCookies = this.Avg * Math.floor(getRandom(this.Min, this.Max));
-  },
-  render: function () {
-    const parentElement = document.getElementById('sales');
-    const h1Element = document.createElement('h1');
-    parentElement.appendChild(h1Element);
-    h1Element.textContent = this.name;
-    const ulElement = document.createElement('ul');
-    parentElement.appendChild(ulElement);
-    for (let i = 0; i < hour.length; i++) {
-      const liElement = document.createElement('li');
-      ulElement.appendChild(liElement);
-      this.avgCookies = (Math.ceil(getRandom(this.Min, this.Max) * this.Avg));
-      this.arr.push(this.avgCookies);
-      this.Total += this.arr[i];
-
-      liElement.textContent = (`${hour[i]}   : ${this.avgCookies} Cookies`);
-    }
-    console.log(this.arr);
-    const liElement = document.createElement('li');
-    ulElement.appendChild(liElement);
-    liElement.textContent = (`Total  ${this.Total}  Cookies`);
-
-
+  for (let i = 0; i < hour.length; i++) {
+    const tdElement = document.createElement('td');
+    tr2Element.appendChild(tdElement);
+    tdElement.textContent = this.avgCookies[i];
   }
+  const td11Element = document.createElement('td');
+  tr2Element.appendChild(td11Element);
+  td11Element.textContent = this.Total;
 };
 
-const Paris = {
-  name: 'Paris',
-  Min: 20,
-  Max: 38,
-  Avg: 2.3,
-  arr: [],
-  Total: 0,
-  avgCookies: 0,
-  getAvg: function () {
-    this.avgCookies = this.Avg * Math.floor(getRandom(this.Min, this.Max));
-  },
+const Seattle = new SalmonCookies('Seattel', 23, 65, 6.3);
+const Tokyo = new SalmonCookies('Tokyo', 3, 24, 1.2);
+const Dubai = new SalmonCookies('Dubai', 11, 38, 3.7);
+const Paris = new SalmonCookies('Paris', 20, 38, 2.3);
+const Lima = new SalmonCookies('Lima', 2, 16, 4.6);
 
-  render: function () {
-    const parentElement = document.getElementById('sales');
-    const h1Element = document.createElement('h1');
-    parentElement.appendChild(h1Element);
-    h1Element.textContent = this.name;
-    const ulElement = document.createElement('ul');
-    parentElement.appendChild(ulElement);
-    for (let i = 0; i < hour.length; i++) {
-      const liElement = document.createElement('li');
-      ulElement.appendChild(liElement);
-      this.avgCookies = (Math.ceil(getRandom(this.Min, this.Max) * this.Avg));
-      this.arr.push(this.avgCookies);
-      this.Total += this.arr[i];
-      liElement.textContent = (`${hour[i]}   : ${this.avgCookies} Cookies`);
-    }
-    console.log(this.arr);
-    const liElement = document.createElement('li');
-    ulElement.appendChild(liElement);
-    liElement.textContent = (`Total  ${this.Total}  Cookies`);
-
-
-  }
-};
-
-const Lima = {
-  name: 'Lima',
-  Min: 2,
-  Max: 16,
-  Avg: 4.6,
-  avgCookies: 0,
-  Total: 0,
-  arr: [],
-  getAvg: function () {
-    this.avgCookies = this.Avg * Math.floor(getRandom(this.Min, this.Max));
-  },
-  render: function () {
-    const parentElement = document.getElementById('sales');
-    const h1Element = document.createElement('h1');
-    parentElement.appendChild(h1Element);
-    h1Element.textContent = this.name;
-    const ulElement = document.createElement('ul');
-    parentElement.appendChild(ulElement);
-    for (let i = 0; i < hour.length; i++) {
-      const liElement = document.createElement('li');
-      ulElement.appendChild(liElement);
-      this.avgCookies = (Math.ceil(getRandom(this.Min, this.Max) * this.Avg));
-      this.arr.push(this.avgCookies);
-      this.Total += this.arr[i];
-
-      liElement.textContent = (`${hour[i]}   : ${this.avgCookies} Cookies`);
-    }
-    console.log(this.arr);
-    const liElement = document.createElement('li');
-    ulElement.appendChild(liElement);
-    liElement.textContent = (`Total  ${this.Total}  Cookies`);
-
-
-  }
-};
-
-
-
-function getRandom(min, max) {
-
-  return (Math.floor(Math.random() * (max - min + 1) + min));
-}
-function getavg(avg) {
-
-  return (Math.floor(avg * getRandom()));
-}
-
-Seattle.getAvg();
+Seattle.showHeader();
+Seattle.getCookies();
 Seattle.render();
-Tokyo.getAvg();
+Tokyo.getCookies();
 Tokyo.render();
-Dubai.getAvg();
+Dubai.getCookies();
 Dubai.render();
-Paris.getAvg();
+Paris.getCookies();
 Paris.render();
-Lima.getAvg();
+Lima.getCookies();
 Lima.render();
+
 
 
 
