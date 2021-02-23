@@ -7,7 +7,7 @@
 // set text content to the element
 
 const pat = {
-  name: 'Welcome to Pat Calmon Cookies',
+  name: 'Welcome to Pat Salmon Cookies',
   img: ' ../img/salmon.PNG',
   render: function () {
     const parentElement = document.getElementById('Pat Salmon Cookies');
@@ -17,9 +17,7 @@ const pat = {
     parentElement.appendChild(h1Element);
     h1Element.textContent = this.name;
 
-    const imgElement = document.createElement('img');
-    parentElement.appendChild(imgElement);
-    imgElement.setAttribute('src', this.img);
+   
 
 
 

@@ -1,0 +1,37 @@
+body{
+    background-color: black;
+    color: crimson;
+}
+h1 a {
+    color: crimson;
+}
+.Slider{
+    width: 5000px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.Slider ul   {
+    list-style: none;
+    
+    padding: 0px;
+    position: relative;
+    animation: sliding 10s ease-in-out infinite;
+    
+}
+
+.Slider ul li {
+    float: left;
+}
+
+@keyframes sliding {
+    0%  {left: 0;}
+    14% {left: -714px;}
+    28% {left:-1428px;}
+    42% {left:-2856px ;}
+    56% {left: -3750px;}
+    70% {left:-4284px ;}
+    84%{left:-5000px ;}
+
+
+}

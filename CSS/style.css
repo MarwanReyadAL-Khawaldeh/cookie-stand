@@ -7,3 +7,22 @@
         border: 1px solid black;
       
   }
+
+  body{
+        background-color: black;
+        color:tomato;
+  }
+
+  th{
+        background-color: white;
+        color: tomato;
+  }
+
+  td{
+        background-color: salmon;
+        color:yellow;
+  }
+
+  h1 a {
+        color: tomato;
+  }
