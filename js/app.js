@@ -17,7 +17,7 @@ const pat = {
     parentElement.appendChild(h1Element);
     h1Element.textContent = this.name;
 
-   
+
 
 
 

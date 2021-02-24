@@ -19,6 +19,9 @@ h1 a {
     animation: sliding 10s ease-in-out infinite;
     
 }
+img{
+    padding: 1px;
+}
 
 .Slider ul li {
     float: left;
@@ -34,4 +37,7 @@ h1 a {
     84%{left:-5000px ;}
 
 
+}
+section{
+    color: lightsalmon;
 }
