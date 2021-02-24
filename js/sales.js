@@ -67,7 +67,7 @@ SalmonCookies.prototype.footer = function () {
   tr1Element.appendChild(thElement);
   thElement.textContent = sumTotal;
 
-  console.log(myObject);
+  //console.log(myObject);
 };
 
 
@@ -89,6 +89,19 @@ SalmonCookies.prototype.render = function () {
   tr2Element.appendChild(td11Element);
   td11Element.textContent = this.Total;
 };
+
+const formElement = document.getElementById('AddNewCity');
+formElement.addEventListener('submit',function(event){
+  event.preventDefault();
+  console.log(event);
+  const Location= event.target.Location.value;
+  const Min=event.target.Min.value;
+  const Max=event.target.Max.value;
+  const Avg = event.target.Avg.value;
+  const city = new SalmonCookies(Location,Min,Max,Avg);
+  city.getCookies();
+  city.render();
+});
 
 
 const Seattle = new SalmonCookies('Seattel', 23, 65, 6.3);
