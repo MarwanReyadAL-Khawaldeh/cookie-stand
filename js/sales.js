@@ -99,8 +99,10 @@ formElement.addEventListener('submit',function(event){
   const Max=event.target.Max.value;
   const Avg = event.target.Avg.value;
   const city = new SalmonCookies(Location,Min,Max,Avg);
+  document.querySelector( 'tr:last-child' ).remove();
   city.getCookies();
   city.render();
+  city.footer();
 });
 
 
