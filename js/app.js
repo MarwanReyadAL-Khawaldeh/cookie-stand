@@ -1,11 +1,5 @@
 'use strict';
 
-
-
-// Create Element
-// append element to parent element
-// set text content to the element
-
 const pat = {
   name: 'Welcome to Pat Salmon Cookies',
   img: ' ../img/salmon.PNG',

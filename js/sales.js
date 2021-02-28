@@ -1,6 +1,7 @@
 'use strict';
 let hour = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 let myObject = [];
+//The constructor
 let SalmonCookies = function (name, Min, Max, Avg) {
   this.name = name;
   this.Min = Min;
@@ -10,7 +11,7 @@ let SalmonCookies = function (name, Min, Max, Avg) {
   this.Total = 0;
   myObject.push(this);
 };
-
+// helper function
 SalmonCookies.prototype.getCookies = function () {
 
   for (let i = 0; i < hour.length; i++) {
@@ -20,7 +21,7 @@ SalmonCookies.prototype.getCookies = function () {
 
   }
 };
-
+// calling the header function
 let parentElement = document.getElementById('sales');
 let tabelElement = document.createElement('tabel');
 SalmonCookies.prototype.showHeader = function () {
@@ -40,7 +41,7 @@ SalmonCookies.prototype.showHeader = function () {
   tr1Element.appendChild(th2Element);
   th2Element.textContent = 'Total';
 };
-
+// Footer function
 SalmonCookies.prototype.footer = function () {
 
   let sumTotal = 0;
@@ -66,11 +67,9 @@ SalmonCookies.prototype.footer = function () {
   thElement = document.createElement('th');
   tr1Element.appendChild(thElement);
   thElement.textContent = sumTotal;
-
-  //console.log(myObject);
 };
 
-
+// render Function
 SalmonCookies.prototype.render = function () {
 
   parentElement.appendChild(tabelElement);
@@ -89,7 +88,7 @@ SalmonCookies.prototype.render = function () {
   tr2Element.appendChild(td11Element);
   td11Element.textContent = this.Total;
 };
-
+// Adding new values to the Tabel
 const formElement = document.getElementById('AddNewCity');
 formElement.addEventListener('submit',function(event){
   event.preventDefault();
